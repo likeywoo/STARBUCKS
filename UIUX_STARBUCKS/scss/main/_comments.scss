@@ -1,0 +1,161 @@
+// #comments {
+// 	width: 100%;
+// 	padding: 80px 0;
+// 	background-color: #ddd;
+// 	.inner {
+// 		width: 1180px;
+// 		margin: 0 auto;
+// 		h2 {
+// 			font: bold 24px/1 'arial';
+// 			color: #555;
+// 			// text-align: center;
+// 			text-align: center;
+// 			//(질문) text-align을 줄 수 있는 이유가 h2태그 여서 그런건가요?
+// 			//(질문)float : center는 안되는건가요?
+// 			margin-bottom: 50px;
+// 		}
+// 		ul {
+// 			width: 100%;
+// 			li {
+// 				width: 100%;
+// 				border: 1px solid #111;
+// 				padding: 15px 20px;
+// 				margin-bottom: 20px;
+// 				display: flex;
+// 				justify-content: space-between;
+// 				align-items: center;
+// 				a {
+// 					font: 12px/1 'arial';
+// 					color: #555;
+// 					text-transform: uppercase;
+// 				}
+// 				span {
+// 					font: 12px/1 'arial';
+// 					color: #888;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+#comments {
+	min-height: 900px;
+	display: flex;
+	justify-content: center;
+	// align-items: center;
+	background: linear-gradient(to top, #ffffff 20%, #dbdbdb 80%);
+	// height: 100vh;
+	padding: 100px 0;
+	.container {
+		margin: 0px 40px;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+		h1 {
+			color: #1c435c;
+			font-size: 40px;
+			margin: 25px 15px;
+			text-shadow: 2px 2px 2px gray;
+		}
+		.tab {
+			position: relative;
+			background-color: #fff;
+			padding: 0px 25px 25px;
+			margin-top: 25px;
+			border-radius: 5px;
+			box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+			overflow: hidden;
+
+			input[type='radio'] {
+				appearance: none;
+				&:checked + label::after {
+					color: #fff;
+				}
+				&:checked ~ .content {
+					max-height: 100vh;
+					p {
+						color: #fff;
+					}
+				}
+				&:checked ~ label h2 {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: rgba(255, 255, 255, 0.2);
+					font-size: 100px;
+					justify-content: flex-end;
+					padding: 20px;
+					transition: all 0.2s;
+				}
+				&:checked ~ label h3 {
+					background-color: #fff;
+					padding: 10px 15px;
+					color: #333;
+					border-radius: 10px;
+					box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				}
+			}
+			label {
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+				&::after {
+					content: '+';
+					position: absolute;
+					right: 20px;
+					font-size: 32px;
+					color: rgba(0, 0, 0, 0.1);
+				}
+				h2 {
+					width: 40px;
+					height: 40px;
+					background-color: #333;
+					color: #fff;
+					font-size: 20px;
+					border-radius: 5px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-right: 20px;
+				}
+				h3 {
+					position: relative;
+					font-weight: bold;
+					color: #333;
+					z-index: 10;
+				}
+			}
+			.content {
+				max-height: 0;
+				overflow: hidden;
+				transition: all 1s;
+				p {
+					position: relative;
+					padding: 15px 0;
+					color: #333;
+					z-index: 10;
+					letter-spacing: 0.3px;
+					line-height: 1.5;
+				}
+			}
+			&:nth-of-type(1) label h2 {
+				background: linear-gradient(135deg, #9c5656, #9c6256);
+			}
+			&:nth-of-type(2) label h2 {
+				background: linear-gradient(135deg, #3f8653, #628740);
+			}
+			&:nth-of-type(3) label h2 {
+				background: linear-gradient(135deg, #5c1c1c, #5c271c);
+			}
+			&:nth-of-type(4) label h2 {
+				background: linear-gradient(135deg, #3f8653, #40876c);
+			}
+			&:nth-of-type(5) label h2 {
+				background: linear-gradient(135deg, #9c5656, #94569c);
+			}
+		}
+	}
+}
